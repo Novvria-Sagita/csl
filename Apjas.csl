@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="never">
+  <info>
+    <title>Custom Journal Article Style</title>
+    <id>http://www.zotero.org/styles/customjournalarticlestyle</id>
+    <link href="http://www.zotero.org/styles/customjournalarticlestyle" rel="self"/>
+    <author>
+      <name>Your Name</name>
+    </author>
+    <category citation-format="author"/>
+    <category field="science"/>
+    <updated>2024-06-19T00:00:00+00:00</updated>
+  </info>
+  <!-- MACROS -->
+  <macro name="author">
+    <names variable="author">
+      <name delimiter=", " delimiter-precedes-last="never" initialize-with=". " name-as-sort-order="all" sort-separator=", " suffix=": "/>
+    </names>
+  </macro>
+  <macro name="title">
+    <text variable="title" suffix=". "/>
+  </macro>
+  <macro name="container-title">
+    <text variable="container-title" form="short" suffix=", "/>
+  </macro>
+  <macro name="volume-issue">
+    <group delimiter=", ">
+      <number variable="volume"/>
+      <text variable="page"/>
+    </group>
+  </macro>
+  <macro name="issued">
+    <date variable="issued">
+      <date-part name="year" prefix=" (" suffix=")"/>
+    </date>
+  </macro>
+  <macro name="DOI">
+    <text variable="DOI" prefix=" https://doi.org/"/>
+  </macro>
+  <!-- CITATION -->
+  <citation>
+    <layout prefix="" suffix="" delimiter="; ">
+      <group>
+        <text macro="author"/>
+        <text macro="title"/>
+        <text macro="container-title"/>
+        <text macro="volume-issue"/>
+        <text macro="issued"/>
+        <text macro="DOI"/>
+      </group>
+    </layout>
+  </citation>
+  <!-- BIBLIOGRAPHY -->
+  <bibliography>
+    <layout>
+      <group>
+        <text macro="author"/>
+        <text macro="title"/>
+        <text macro="container-title"/>
+        <text macro="volume-issue"/>
+        <text macro="issued"/>
+        <text macro="DOI"/>
+      </group>
+    </layout>
+  </bibliography>
+</style>
