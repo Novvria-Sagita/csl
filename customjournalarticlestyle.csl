@@ -14,61 +14,54 @@
   <!-- MACROS -->
   <macro name="author">
     <names variable="author">
-      <name delimiter=", " delimiter-precedes-last="always" initialize-with=". " name-as-sort-order="all" sort-separator=", "/>
-      <label form="short" prefix=", "/>
-      <substitute>
-        <names variable="editor" />
-        <names variable="translator" />
-      </substitute>
+      <name delimiter=", " delimiter-precedes-last="always" initialize-with=". " name-as-sort-order="all" sort-separator=", " suffix=": "/>
     </names>
   </macro>
   <macro name="title">
-    <text variable="title" suffix=": "/>
+    <text variable="title" suffix=". "/>
   </macro>
-  <macro name="container-title">
+  <macro name="journal">
     <text variable="container-title" form="short" suffix=", "/>
   </macro>
-  <macro name="volume-issue">
-    <group delimiter=", ">
-      <text variable="volume"/>
-      <text variable="page"/>
-    </group>
+  <macro name="volume">
+    <text variable="volume" prefix=" " suffix=", "/>
+  </macro>
+  <macro name="page">
+    <text variable="page" prefix=" "/>
   </macro>
   <macro name="issued">
     <date variable="issued">
       <date-part name="year" prefix=" (" suffix=")"/>
     </date>
   </macro>
-  <macro name="access">
-    <choose>
-      <if variable="DOI">
-        <text variable="DOI" prefix=" https://doi.org/"/>
-      </if>
-    </choose>
+  <macro name="DOI">
+    <text variable="DOI" prefix=" https://doi.org/"/>
   </macro>
   <!-- CITATION -->
   <citation>
     <layout prefix="" suffix="" delimiter="; ">
-      <group delimiter="">
+      <group>
         <text macro="author"/>
         <text macro="title"/>
-        <text macro="container-title"/>
-        <text macro="volume-issue"/>
+        <text macro="journal"/>
+        <text macro="volume"/>
+        <text macro="page"/>
         <text macro="issued"/>
-        <text macro="access"/>
+        <text macro="DOI"/>
       </group>
     </layout>
   </citation>
   <!-- BIBLIOGRAPHY -->
   <bibliography>
     <layout>
-      <group delimiter="">
+      <group>
         <text macro="author"/>
         <text macro="title"/>
-        <text macro="container-title"/>
-        <text macro="volume-issue"/>
+        <text macro="journal"/>
+        <text macro="volume"/>
+        <text macro="page"/>
         <text macro="issued"/>
-        <text macro="access"/>
+        <text macro="DOI"/>
       </group>
     </layout>
   </bibliography>
